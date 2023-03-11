@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Env
 .env
+
+# SimpleCov
+/coverage

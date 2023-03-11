@@ -10,6 +10,9 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'bootsnap', '>= 1.4.4', require: false
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -18,9 +21,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'factory_bot_rails', '~> 6.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -31,4 +34,15 @@ group :development do
   gem 'spring'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :test do
+  gem 'rspec-rails', '~> 6.0'
+  gem "capybara", "~> 3.38"
+  gem 'faker', '~> 3.1'
+  gem 'shoulda-matchers', '~> 5.3'
+  gem "database_cleaner-active_record", "~> 2.1"
+  gem 'simplecov', '~> 0.22.0', require: false
+end
+
+
+
+gem "selenium-webdriver", "~> 4.8"
