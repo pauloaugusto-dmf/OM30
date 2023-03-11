@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      citizen: Munícipe
+      citizens: Munícipes
+    attributes:
+      citizen:
+        id: ID
+        status: Status
+        first_name: Nome
+        last_name: Sobrenome
+        cpf:  CPF
+        cns:  CNS
+        email: Email
+        date_of_birth: Data de Nascimento
+        telephone: Telefone
+        photo: Foto

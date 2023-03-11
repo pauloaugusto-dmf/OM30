@@ -1,0 +1,26 @@
+en:
+  app:
+    citizen: Citizen
+    citizens: Citizens
+    menu:
+      new_citizen: New Citizen
+      create_citizen: Create Citizen
+      edit_citizen: Edit Citizen
+      back: Back
+      show: Show
+      edit: Edit
+    filds:
+      status: Status
+      first_name: First Name
+      last_name: Last Name
+      cpf:  CPF
+      cns:  CNS
+      email: Email
+      date_of_birth: Date of Birth
+      telephone: Telephone
+      photo: Photo
+    pagination:
+      older: Older
+      newer: Newer
+    errors:
+      prohibited_save: prohibited this citizen from being saved

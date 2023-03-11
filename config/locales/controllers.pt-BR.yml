@@ -1,0 +1,5 @@
+pt-BR:
+  citizen:
+    notice:
+      citizen_was_successfully_created: Munícipe foi criado com sucesso.
+      citizen_was_successfully_updated: Munícipe foi atualizado com sucesso.

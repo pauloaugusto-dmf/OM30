@@ -1,0 +1,5 @@
+en:
+  citizen:
+    notice:
+      citizen_was_successfully_created: Citizen was successfully created.
+      citizen_was_successfully_updated: Citizen was successfully updated.

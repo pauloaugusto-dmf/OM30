@@ -1,0 +1,6 @@
+<h1><%= t 'app.menu.edit_citizen' %></h1>
+
+<%= render 'form', citizen: @citizen %>
+
+<%= link_to t('app.menu.show'), @citizen %> |
+<%= link_to t('app.menu.back'), citizens_path %>

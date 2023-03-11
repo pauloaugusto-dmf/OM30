@@ -1,0 +1,26 @@
+pt-BR:
+  app:
+    citizen: Munícipe
+    citizens: Munícipes
+    menu:
+      new_citizen: Novo Munícipe
+      create_citizen: Criar Munícipe
+      edit_citizen: Editar Munícipe
+      back: Voltar
+      show: Mostrar
+      edit: Editar
+    filds:
+      status: Status
+      first_name: Nome
+      last_name: Sobrenome
+      cpf:  CPF
+      cns:  CNS
+      email: Email
+      date_of_birth: Data de Nascimento
+      telephone: Telefone
+      photo: Foto
+    pagination:
+      older: Anterio
+      newer: Próximo
+    errors:
+      prohibited_save: proibiu este munícipe de ser salvo

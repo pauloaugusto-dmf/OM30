@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t 'app.filds.status' %>:</strong>
+  <%= @citizen.status %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.first_name' %>:</strong>
+  <%= @citizen.first_name %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.last_name' %>:</strong>
+  <%= @citizen.last_name %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.cpf' %>:</strong>
+  <%= @citizen.cpf %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.cns' %>:</strong>
+  <%= @citizen.cns %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.email' %>:</strong>
+  <%= @citizen.email %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.date_of_birth' %>:</strong>
+  <%= @citizen.date_of_birth %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.telephone' %>:</strong>
+  <%= @citizen.telephone %>
+</p>
+
+<p>
+  <strong><%= t 'app.filds.photo' %>:</strong>
+  <% @citizen.photo.each do |photo| %>
+    <div><%= link_to photo.filename, photo %></div>
+  <% end %>
+</p>
+
+<%= link_to t('app.menu.edit'), edit_citizen_path(@citizen) %> |
+<%= link_to t('app.menu.back'), citizens_path %>
