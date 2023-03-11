@@ -21,10 +21,7 @@ CRUD of citizens
 
 ## Settings to run the project
 
-<hr><br>
-
 ### Without using Docker
-<hr>
 
 ```bash
 git clone https://github.com/pauloaugusto-dmf/OM30.git
@@ -39,7 +36,6 @@ rails s
 ```
 
 ### Using Docker
-<hr>
 
 
 ```bash
@@ -53,18 +49,14 @@ docker-compose up
 ```
 
 ## Tests
-<hr>
-
 
 ### Without using Docker
-<hr>
 
 ```bash
 rspec
 ```
 
 ### Using Docker
-<hr>
 
 ```bash
 docker-compose run --rm web rspec
@@ -72,7 +64,6 @@ docker-compose run --rm web rspec
 <br>
 
 ## Tips:
-<hr>
 
 > When there are changes in the database, before uploading the server, it is necessary to run the migrations to apply these changes.
 
