@@ -33,8 +33,9 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'spring'
   gem 'rubocop-rails', '~> 2.18', require: false
-  gem "bundle-audit", "~> 0.1.0", require: false
-  gem "rails_best_practices", "~> 1.23", require: false
+  gem 'bundle-audit', '~> 0.1.0', require: false
+  gem 'rails_best_practices', '~> 1.23', require: false
+  gem 'annotate', '~> 3.2'
 end
 
 group :test do

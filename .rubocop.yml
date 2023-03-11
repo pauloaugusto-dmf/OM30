@@ -16,6 +16,7 @@ Rails/FilePath:
 
 Metrics/BlockLength:
   Exclude:
+    - 'lib/tasks/*'
     - 'spec/**/*'
     - 'db/migrate/*'
 
