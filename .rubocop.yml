@@ -46,3 +46,4 @@ AllCops:
     - 'config/initializers/active_record_enum.rb'
     - 'lib/cancancan_custom/lib/cancan/ability/rules.rb'
     - 'bin/*'
+    - 'vendor/bundle/**/*'
