@@ -25,7 +25,7 @@ class Citizen < ApplicationRecord
     validates :first_name
     validates :last_name
     validates :status
-    validates :telephone, numericality: { only_integer: true }, length: { is: 13 }
+    validates :telephone
   end
 
   validates_with CitizenDateValidator
