@@ -12,6 +12,7 @@ class CitizensController < ApplicationController
   # GET /citizens/new
   def new
     @citizen = Citizen.new
+    @citizen.build_address
   end
 
   # GET /citizens/1/edit
@@ -55,6 +56,7 @@ class CitizensController < ApplicationController
   # Only allow a list of trusted parameters through.
   def citizen_params
     params.require(:citizen).permit(:status, :first_name, :last_name, :cpf, :cns, :email, :date_of_birth, :telephone,
-                                    photo: [])
+                                    photo: [], address_attributes: [:city, :complement, :fu, :ibge_code, :neighborhood,
+                                                                    :public_place, :zipcode, :id])
   end
 end

@@ -15,7 +15,12 @@
 #  updated_at    :datetime         not null
 #
 class Citizen < ApplicationRecord
+  has_one :address, dependent: :destroy
   has_many_attached :photo
+
+  accepts_nested_attributes_for :address
+
+  delegate :city, :complement, :fu, :ibge_code, :neighborhood, :public_place, :zipcode, to: :address, prefix: true
 
   with_options presence: true do
     validates :cns, numericality: { only_integer: true }, length: { is: 15 }
@@ -25,7 +30,7 @@ class Citizen < ApplicationRecord
     validates :first_name
     validates :last_name
     validates :status
-    validates :telephone, numericality: true, length: { minimum: 10, maximum: 15 }
+    validates :telephone, length: { minimum: 10, maximum: 15 }
   end
 
   validates_with CitizenDateValidator

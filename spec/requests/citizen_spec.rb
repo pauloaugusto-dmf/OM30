@@ -1,5 +1,6 @@
 RSpec.describe 'Citizens', type: :request do
   subject(:citizen) { create :citizen }
+  subject(:address) { create :address, citizen: citizen }
 
   describe 'when request list of all citizens' do
     it 'renders a successful response' do
@@ -18,6 +19,10 @@ RSpec.describe 'Citizens', type: :request do
 
   describe 'when request a specific citizen' do
     context 'with success' do
+      before(:each) do
+        address
+      end
+
       it 'renders a successful response' do
         get "/citizens/#{citizen.id}", headers: headers_html
 
@@ -46,7 +51,16 @@ RSpec.describe 'Citizens', type: :request do
             email: citizen.email,
             date_of_birth: citizen.date_of_birth,
             telephone: citizen.telephone,
-            photo: citizen.photo
+            photo: citizen.photo,
+            address_attributes: {
+              city: address.city,
+              complement: address.complement,
+              fu: address.fu,
+              ibge_code: address.ibge_code,
+              neighborhood: address.neighborhood,
+              public_place: address.public_place,
+              zipcode: address.zipcode
+            }
           }
         }, headers: { 'Accept' => 'text/html', 'Content-Type' => 'multipart/form-data' }
       end
@@ -72,7 +86,16 @@ RSpec.describe 'Citizens', type: :request do
             email: citizen.email,
             date_of_birth: citizen.date_of_birth,
             telephone: citizen.telephone,
-            photo: citizen.photo
+            photo: citizen.photo,
+            address_attributes: {
+              city: address.city,
+              complement: address.complement,
+              fu: address.fu,
+              ibge_code: address.ibge_code,
+              neighborhood: address.neighborhood,
+              public_place: address.public_place,
+              zipcode: address.zipcode
+            }
           }
         }, headers: { 'Accept' => 'text/html', 'Content-Type' => 'multipart/form-data' }
       end

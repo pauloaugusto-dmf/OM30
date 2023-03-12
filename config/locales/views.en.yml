@@ -2,6 +2,8 @@ en:
   app:
     citizen: Citizen
     citizens: Citizens
+    address: Address
+    addresses: Addresses
     menu:
       new_citizen: New Citizen
       create_citizen: Create Citizen
@@ -19,6 +21,13 @@ en:
       date_of_birth: Date of Birth
       telephone: Telephone
       photo: Photo
+      city: City
+      complement: Complement
+      fu: FU
+      ibge_code: IBGE Code
+      neighborhood: Neighborhood
+      public_place: Public Place
+      zipcode: Zipcode
     pagination:
       older: Older
       newer: Newer

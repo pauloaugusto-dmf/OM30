@@ -2,6 +2,8 @@ pt-BR:
   app:
     citizen: Munícipe
     citizens: Munícipes
+    address: Endereço
+    addresses: Endereços
     menu:
       new_citizen: Novo Munícipe
       create_citizen: Criar Munícipe
@@ -19,6 +21,13 @@ pt-BR:
       date_of_birth: Data de Nascimento
       telephone: Telefone
       photo: Foto
+      city: Cidade
+      complement: Complemento
+      fu: UF
+      ibge_code: Código IBGE
+      neighborhood: Bairro 
+      public_place: Logradouro
+      zipcode: CEP
     pagination:
       older: Anterio
       newer: Próximo

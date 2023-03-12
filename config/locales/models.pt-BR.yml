@@ -3,6 +3,8 @@ pt-BR:
     models:
       citizen: Munícipe
       citizens: Munícipes
+      address: Endereço
+      addresses: Endereços
     attributes:
       citizen:
         id: ID
@@ -15,5 +17,14 @@ pt-BR:
         date_of_birth: Data de Nascimento
         telephone: Telefone
         photo: Foto
+      address:
+        id: ID
+        zipcode: CEP
+        public_place: Logradouro
+        neighborhood: Bairro
+        city: Cidade
+        fu: UF
+        complement: Complemento
+        ibge_code: Código IBGE
     errors:
       the_date_entered_is_greater_than_the_current_date: A data informada é superior a data atual.

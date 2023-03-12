@@ -56,6 +56,43 @@
     <%= form.file_field :photo, multiple: true %>
   </div>
 
+  <%= form.fields_for :address do |address_subform| %>
+    <div class="field">
+      <%= address_subform.label :city %>
+      <%= address_subform.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :complement  %>
+      <%= address_subform.text_field :complement  %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :fu %>
+      <%= address_subform.text_field :fu %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :ibge_code %>
+      <%= address_subform.text_field :ibge_code %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :neighborhood %>
+      <%= address_subform.text_field :neighborhood %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :public_place %>
+      <%= address_subform.text_field :public_place %>
+    </div>
+
+    <div class="field">
+      <%= address_subform.label :zipcode %>
+      <%= address_subform.text_field :zipcode %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
