@@ -24,11 +24,10 @@ class CitizensController < ApplicationController
 
     respond_to do |format|
       if @citizen.save
+        CitizenMailer.with(citizen: @citizen).welcome_email.deliver_later
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_created') }
-        format.json { render :show, status: :created, location: @citizen }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @citizen.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +37,8 @@ class CitizensController < ApplicationController
     respond_to do |format|
       if @citizen.update(citizen_params)
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_updated') }
-        format.json { render :show, status: :ok, location: @citizen }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @citizen.errors, status: :unprocessable_entity }
       end
     end
   end

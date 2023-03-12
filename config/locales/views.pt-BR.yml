@@ -31,5 +31,7 @@ pt-BR:
     pagination:
       older: Anterio
       newer: Próximo
+    mailer:
+      citizen_created_successfully: Munícipe criado com sucesso
     errors:
       prohibited_save: proibiu este munícipe de ser salvo

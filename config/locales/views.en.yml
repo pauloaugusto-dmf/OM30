@@ -31,5 +31,7 @@ en:
     pagination:
       older: Older
       newer: Newer
+    mailer:
+      citizen_created_successfully: Citizen created successfully
     errors:
       prohibited_save: prohibited this citizen from being saved
