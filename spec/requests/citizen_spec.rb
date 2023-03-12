@@ -31,20 +31,6 @@ RSpec.describe 'Citizens', type: :request do
         expect(response.body).to include(first_name)
       end
     end
-
-    context 'with failure' do
-      xit 'renders a unsuccessful response' do
-        get "/citizens/-1", headers: headers_html
-
-        expect(response).to be_unsuccessful
-      end
-
-      xit 'returns an error message' do
-        get "/citizens/-1", headers: headers_html
-
-        expect(response.body).to include(first_name)
-      end
-    end
   end
 
   describe 'when create a citizen' do

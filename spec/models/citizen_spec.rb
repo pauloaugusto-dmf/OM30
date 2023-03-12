@@ -64,7 +64,7 @@ RSpec.describe Citizen, type: :model do
       expect(citizen).to_not be_valid
     end
 
-    xit 'it not valid with invalid telephone' do
+    it 'it not valid with invalid telephone' do
       citizen.telephone = '45'
       expect(citizen).to_not be_valid
     end
