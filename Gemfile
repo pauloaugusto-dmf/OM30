@@ -19,8 +19,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
+gem 'image_processing', '~> 1.2'
+gem "cpf_cnpj", "~> 0.5.0"
+gem "validators", "~> 3.4"
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
@@ -47,3 +48,5 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'simplecov', '~> 0.22.0', require: false
 end
+
+gem "root_domain", "~> 0.1.2"

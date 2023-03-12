@@ -1,0 +1,4 @@
+en:
+  activerecord:
+    errors:
+      the_date_entered_is_greater_than_the_current_date: The date entered is greater than the current date.

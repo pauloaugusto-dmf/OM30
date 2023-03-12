@@ -15,3 +15,5 @@ pt-BR:
         date_of_birth: Data de Nascimento
         telephone: Telefone
         photo: Foto
+    errors:
+      the_date_entered_is_greater_than_the_current_date: A data informada é superior a data atual.

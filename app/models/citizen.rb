@@ -16,4 +16,17 @@
 #
 class Citizen < ApplicationRecord
   has_many_attached :photo
+
+  with_options presence: true do
+    validates :cns, numericality: { only_integer: true }, length: { is: 15 }
+    validates :cpf, cpf: true, numericality: { only_integer: true }
+    validates :email, email: true
+    validates :date_of_birth, datetime: true
+    validates :first_name
+    validates :last_name
+    validates :status
+    validates :telephone, numericality: { only_integer: true }, length: { is: 13 }
+  end
+
+  validates_with CitizenDateValidator
 end
