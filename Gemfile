@@ -56,7 +56,3 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'simplecov', '~> 0.22.0', require: false
 end
-
-
-
-
