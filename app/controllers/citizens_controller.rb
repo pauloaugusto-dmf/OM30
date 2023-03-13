@@ -24,7 +24,7 @@ class CitizensController < ApplicationController
 
     respond_to do |format|
       if @citizen.save
-        CitizenMailer.with(citizen: @citizen).welcome_email.deliver_later
+        Mailer::CreateCitizenJob.perform_now(@citizen)
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_created') }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,6 +36,7 @@ class CitizensController < ApplicationController
   def update
     respond_to do |format|
       if @citizen.update(citizen_params)
+        Mailer::UpdateCitizenJob.perform_now(@citizen)
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_updated') }
       else
         format.html { render :edit, status: :unprocessable_entity }

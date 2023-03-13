@@ -14,7 +14,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
+
+# Sidekiq
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,3 +53,7 @@ group :test do
 end
 
 gem "root_domain", "~> 0.1.2"
+
+gem "sidekiq", "~> 7.0"
+
+gem "sidekiq-cron", "~> 1.9"

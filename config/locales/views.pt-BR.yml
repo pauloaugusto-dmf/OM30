@@ -32,6 +32,7 @@ pt-BR:
       older: Anterio
       newer: Próximo
     mailer:
-      citizen_created_successfully: Munícipe criado com sucesso
+      citizen_created: Munícipe criado
+      citizen_update: Munícipe atualizado
     errors:
       prohibited_save: proibiu este munícipe de ser salvo

@@ -1,0 +1,4 @@
+create_citizen_mailer_job:
+  cron: '0 * * * * *'
+  class: Mailer::CreateCitizenJob
+    

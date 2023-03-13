@@ -32,6 +32,7 @@ en:
       older: Older
       newer: Newer
     mailer:
-      citizen_created_successfully: Citizen created successfully
+      citizen_created: Citizen created
+      citizen_update: Citizen update
     errors:
       prohibited_save: prohibited this citizen from being saved
