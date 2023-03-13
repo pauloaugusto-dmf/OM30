@@ -24,6 +24,7 @@ class CitizensController < ApplicationController
 
     respond_to do |format|
       if @citizen.save
+        Sms::CreateCitizenJob.perform_now(@citizen)
         Mailer::CreateCitizenJob.perform_now(@citizen)
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_created') }
       else
@@ -36,6 +37,7 @@ class CitizensController < ApplicationController
   def update
     respond_to do |format|
       if @citizen.update(citizen_params)
+        Sms::UpdateCitizenJob.perform_now(@citizen)
         Mailer::UpdateCitizenJob.perform_now(@citizen)
         format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_updated') }
       else
