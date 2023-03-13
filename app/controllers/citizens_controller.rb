@@ -3,7 +3,8 @@ class CitizensController < ApplicationController
 
   # GET /citizens or /citizens.json
   def index
-    @citizens = Citizen.all
+    @q = Citizen.ransack(params[:q])
+    @citizens = @q.result.includes(:address)
   end
 
   # GET /citizens/1 or /citizens/1.json

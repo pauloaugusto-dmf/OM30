@@ -16,7 +16,7 @@
 #
 class Citizen < ApplicationRecord
   has_one :address, dependent: :destroy
-  has_many_attached :photo
+  has_one_attached :photo
 
   accepts_nested_attributes_for :address
 
@@ -29,9 +29,17 @@ class Citizen < ApplicationRecord
     validates :date_of_birth, datetime: true
     validates :first_name
     validates :last_name
-    validates :status
     validates :telephone, length: { minimum: 10, maximum: 15 }
   end
 
   validates_with CitizenDateValidator
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[cns cpf date_of_birth email first_name id last_name status telephone address_city address_complement address_fu
+       address_ibge_code address_neighborhood address_public_place address_zipcode]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[address]
+  end
 end

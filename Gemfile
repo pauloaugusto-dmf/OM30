@@ -45,14 +45,16 @@ group :development do
   gem 'bundle-audit', '~> 0.1.0', require: false
   gem 'rails_best_practices', '~> 1.23', require: false
   gem 'annotate', '~> 3.2'
+  gem 'faker', '~> 3.1'
 end
 
 group :test do
   gem 'rspec-rails', '~> 6.0'
   gem 'capybara', '~> 3.38'
   gem 'selenium-webdriver', '~> 4.8'
-  gem 'faker', '~> 3.1'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'simplecov', '~> 0.22.0', require: false
 end
+
+gem "ransack", "~> 4.0"
