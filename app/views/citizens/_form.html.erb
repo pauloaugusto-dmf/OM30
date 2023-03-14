@@ -1,6 +1,6 @@
 <div class="">
   <%= form_with(model: citizen, class: "bg-dark text-white rounded p-2 text-center" ) do |form| %>
-    <% if citizen.errors.any? %>
+    <% if citizen&.errors&.any? %>
       <div id="error_explanation">
         <h2>
           <%= pluralize(citizen.errors.count, "error" ) %> prohibited this citizen from being saved:
@@ -78,7 +78,7 @@
           <div class="col">
             <div class="field">
               <%= form.label :photo, class: "form-label" %>
-                <%= form.file_field :photo, multiple: true, class: "form-control" %>
+                <%= form.file_field :photo, class: "form-control" %>
             </div>
           </div>
         </div>
@@ -97,11 +97,7 @@
 
             <div class="field col-md-2">
               <%= address_subform.label :fu, class: "form-label" %>
-              <%= select_tag(:fu, options_for_select(
-                ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
-                 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN',
-                 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
-              ), class: "form-select") %>
+              <%= address_subform.text_field :fu, class: "form-control" %>
             </div>
             <div class="field col-12">
               <%= address_subform.label :public_place, class: "form-label" %>

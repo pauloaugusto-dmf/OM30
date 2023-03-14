@@ -44,4 +44,8 @@ class Citizen < ApplicationRecord
     %w[cns cpf date_of_birth email first_name id last_name status telephone address_city address_complement address_fu
        address_ibge_code address_neighborhood address_public_place address_zipcode]
   end
+
+  def self.ransackable_associations(_auth_object = nil)
+    ["address"]
+  end
 end

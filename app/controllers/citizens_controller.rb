@@ -5,15 +5,19 @@ class CitizensController < ApplicationController
   def index
     @q = Citizen.ransack(params[:q])
     @citizens = @q.result.includes(:address).page(params[:page])
+    Rails.logger.info 'Index view accessed'
   end
 
   # GET /citizens/1 or /citizens/1.json
-  def show; end
+  def show
+    Rails.logger.info "Show view of citizen ##{params[:id]} accessed"
+  end
 
   # GET /citizens/new
   def new
     @citizen = Citizen.new
     @citizen.build_address
+    Rails.logger.info 'New view accessed'
   end
 
   # GET /citizens/1/edit
@@ -21,29 +25,23 @@ class CitizensController < ApplicationController
 
   # POST /citizens or /citizens.json
   def create
-    @citizen = Citizen.new(citizen_params)
+    result = Citizens::Create.call(citizen_params)
 
-    respond_to do |format|
-      if @citizen.save
-        Sms::CreateCitizenJob.perform_now(@citizen)
-        Mailer::CreateCitizenJob.perform_now(@citizen)
-        format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_created') }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if result.success?
+      redirect_to citizens_url, notice: t('citizen.notice.citizen_was_successfully_created')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /citizens/1 or /citizens/1.json
   def update
-    respond_to do |format|
-      if @citizen.update(citizen_params)
-        Sms::UpdateCitizenJob.perform_now(@citizen)
-        Mailer::UpdateCitizenJob.perform_now(@citizen)
-        format.html { redirect_to citizen_url(@citizen), notice: t('citizen.notice.citizen_was_successfully_updated') }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    result = Citizens::Update.call(@citizen, citizen_params)
+
+    if result.success?
+      redirect_to citizens_url, notice: t('citizen.notice.citizen_was_successfully_updated')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -57,7 +55,7 @@ class CitizensController < ApplicationController
   # Only allow a list of trusted parameters through.
   def citizen_params
     params.require(:citizen).permit(:status, :first_name, :last_name, :cpf, :cns, :email, :date_of_birth, :telephone,
-                                    photo: [], address_attributes: [:city, :complement, :fu, :ibge_code, :neighborhood,
-                                                                    :public_place, :zipcode, :id])
+                                    :photo, address_attributes: [:city, :complement, :fu, :ibge_code, :neighborhood,
+                                                                 :public_place, :zipcode, :id])
   end
 end

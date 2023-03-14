@@ -37,5 +37,10 @@ module OM30
 
     # Sidekiq
     config.active_job.queue_adapter = :sidekiq
+
+    # create a logger with a file as a logging target
+    config.logger = Logger.new('log/important.log')
+    # set the minimum log level
+    config.log_level = :warn
   end
 end
