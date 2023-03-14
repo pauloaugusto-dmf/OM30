@@ -37,6 +37,7 @@ gem "will_paginate", "~> 3.3"
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker', '~> 3.1'
 end
 
 group :development do
@@ -48,7 +49,6 @@ group :development do
   gem 'bundle-audit', '~> 0.1.0', require: false
   gem 'rails_best_practices', '~> 1.23', require: false
   gem 'annotate', '~> 3.2'
-  gem 'faker', '~> 3.1'
 end
 
 group :test do
@@ -59,4 +59,3 @@ group :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'simplecov', '~> 0.22.0', require: false
 end
-

@@ -35,10 +35,6 @@ class Address < ApplicationRecord
 
   validates :ibge_code, numericality: true
 
-  def self.ransackable_associations(_auth_object = nil)
-    ["citizen"]
-  end
-
   def self.ransackable_attributes(_auth_object = nil)
     %w[ city complement fu ibge_code neighborhood public_place
         zipcode]

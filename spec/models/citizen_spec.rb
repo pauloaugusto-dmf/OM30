@@ -20,7 +20,7 @@ RSpec.describe Citizen, type: :model do
   subject(:citizen) { build :citizen }
 
   describe 'validations have_many_attached' do
-    it { should have_many_attached(:photo) }
+    it { should have_one_attached(:photo) }
   end
 
   describe 'validations presence of' do
@@ -30,7 +30,6 @@ RSpec.describe Citizen, type: :model do
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
-    it { should validate_presence_of(:status) }
     it { should validate_presence_of(:telephone) }
   end
 

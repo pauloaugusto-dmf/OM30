@@ -28,7 +28,7 @@
   }
   citizen = Citizen.new(params)
   citizen.photo.attach(
-    io: File.open(Rails.root.join('app', 'assets', 'images', 'avatar.png')),
+    io: Rails.root.join('app', 'assets', 'images', 'avatar.png').open,
     filename: 'avatar.png',
     content_type: 'image/png'
   )
