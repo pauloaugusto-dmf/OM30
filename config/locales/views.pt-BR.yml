@@ -11,7 +11,9 @@ pt-BR:
       back: Voltar
       show: Mostrar
       edit: Editar
-    filds:
+      active: Ativo
+      inactive: Inativo
+    fields:
       status: Status
       first_name: Nome
       last_name: Sobrenome
@@ -28,6 +30,7 @@ pt-BR:
       neighborhood: Bairro 
       public_place: Logradouro
       zipcode: CEP
+      filter: Filtrar
     pagination:
       older: Anterio
       newer: Próximo

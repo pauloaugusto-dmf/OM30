@@ -1,46 +1,20 @@
+<%= render 'nav_bar', text: t('app.citizens') %>
+
 <p id="notice"><%= notice %></p>
 
-<h1><%= t 'app.citizens' %></h1>
+<div class="mx-5 ps-5">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render 'search_menu', q: @q %>
+    </div>
+    <div class="col-sm-8">
+      <%= link_to t('app.menu.new_citizen'), new_citizen_path, class: "btn btn-success text-white mb-3" %>
+      <% @citizens.each do |citizen| %>
+        <%= render 'citizen', citizen: citizen %>
+      <% end %>
 
-<%= render 'search_menu', q: @q %>
+      <%= will_paginate @books, list_classes: %w(pagination justify-content-end) %>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t 'app.filds.status' %></th>
-      <th><%= t 'app.filds.first_name' %></th>
-      <th><%= t 'app.filds.last_name' %></th>
-      <th><%= t 'app.filds.cpf' %></th>
-      <th><%= t 'app.filds.cns' %></th>
-      <th><%= t 'app.filds.email' %></th>
-      <th><%= t 'app.filds.date_of_birth' %></th>
-      <th><%= t 'app.filds.telephone' %></th>
-      <th><%= t 'app.filds.photo' %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @citizens.each do |citizen| %>
-      <tr>
-        <td><%= citizen.status %></td>
-        <td><%= citizen.first_name %></td>
-        <td><%= citizen.last_name %></td>
-        <td><%= citizen.cpf %></td>
-        <td><%= citizen.cns %></td>
-        <td><%= citizen.email %></td>
-        <td><%= citizen.date_of_birth %></td>
-        <td><%= citizen.telephone %></td>
-        <td><%= citizen.photo %></td>
-        <td><%= link_to t('app.menu.show'), citizen %></td>
-        <td><%= link_to t('app.menu.edit'), edit_citizen_path(citizen) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t('app.menu.new_citizen'), new_citizen_path %>
-
-<%= will_paginate @books, list_classes: %w(pagination justify-content-end) %>

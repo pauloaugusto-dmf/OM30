@@ -1,99 +1,131 @@
-<%= form_with(model: citizen) do |form| %>
-  <% if citizen.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(citizen.errors.count, "error") %> prohibited this citizen from being saved:</h2>
+<div class="">
+  <%= form_with(model: citizen, class: "bg-dark text-white rounded p-2 text-center" ) do |form| %>
+    <% if citizen.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(citizen.errors.count, "error" ) %> prohibited this citizen from being saved:
+        </h2>
 
-      <ul>
-        <% citizen.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <ul>
+          <% citizen.errors.each do |error| %>
+            <li>
+              <%= error.full_message %>
+            </li>
+            <% end %>
+        </ul>
+      </div>
+      <% end %>
+        <div class="field form-check form-switch col-2">
+          <%= form.label :status, class: "form-check-label", for: "flexSwitchCheckChecked" %>
+          <%= form.check_box :status, {class: "form-check-input", role: "switch", id: "flexSwitchCheckChecked"}, "checked-value" %>
+        </div>
+
+        <div class="row g-3">
+          <div class="col">
+            <div class="field">
+              <%= form.label :first_name, class: "form-label" %>
+                <%= form.text_field :first_name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= form.label :last_name, class: "form-label" %>
+                <%= form.text_field :last_name, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col">
+            <div class="field">
+              <div class="field">
+                <%= form.label :email, class: "form-label" %>
+                  <%= form.email_field :email, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row g-3">
+              <div class="col">
+                <div class="field">
+                  <%= form.label :cpf, class: "form-label" %>
+                    <%= form.text_field :cpf, class: "form-control" %>
+                </div>
+              </div>
+              <div class="col">
+                <div class="field">
+                  <%= form.label :cns, class: "form-label" %>
+                    <%= form.text_field :cns, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col">
+            <div class="field">
+              <%= form.label :date_of_birth, class: "form-label" %>
+                <%= form.date_field :date_of_birth, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= form.label :telephone, class: "form-label" %>
+                <%= form.telephone_field :telephone, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <%= form.label :photo, class: "form-label" %>
+                <%= form.file_field :photo, multiple: true, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <%= form.fields_for :address do |address_subform| %>
+          <div class="row g-3">
+            <div class="field col-md-6">
+              <%= address_subform.label :city, class: "form-label" %>
+              <%= address_subform.text_field :city, class: "form-control" %>
+            </div>
+
+            <div class="field col-md-4">
+              <%= address_subform.label :zipcode, class: "form-label" %>
+              <%= address_subform.text_field :zipcode, class: "form-control" %>
+            </div>
+
+            <div class="field col-md-2">
+              <%= address_subform.label :fu, class: "form-label" %>
+              <%= select_tag(:fu, options_for_select(
+                ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
+                 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN',
+                 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
+              ), class: "form-select") %>
+            </div>
+            <div class="field col-12">
+              <%= address_subform.label :public_place, class: "form-label" %>
+              <%= address_subform.text_field :public_place, class: "form-control" %>
+            </div>
+            <div class="field col-4">
+            <%= address_subform.label :complement, class: "form-label" %>
+              <%= address_subform.text_field :complement, class: "form-control" %>
+          </div>
+
+          <div class="field col-4">
+            <%= address_subform.label :ibge_code, class: "form-label" %>
+              <%= address_subform.text_field :ibge_code, class: "form-control" %>
+          </div>
+
+          <div class="field col-4">
+            <%= address_subform.label :neighborhood, class: "form-label" %>
+              <%= address_subform.text_field :neighborhood, class: "form-control" %>
+          </div>
+        </div>
         <% end %>
-      </ul>
-    </div>
+
+  <div class="">
+    <%= form.submit(class: "btn btn-light" )  %>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cns %>
-    <%= form.text_field :cns %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telephone %>
-    <%= form.text_field :telephone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.file_field :photo, multiple: true %>
-  </div>
-
-  <%= form.fields_for :address do |address_subform| %>
-    <div class="field">
-      <%= address_subform.label :city %>
-      <%= address_subform.text_field :city %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :complement  %>
-      <%= address_subform.text_field :complement  %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :fu %>
-      <%= address_subform.text_field :fu %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :ibge_code %>
-      <%= address_subform.text_field :ibge_code %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :neighborhood %>
-      <%= address_subform.text_field :neighborhood %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :public_place %>
-      <%= address_subform.text_field :public_place %>
-    </div>
-
-    <div class="field">
-      <%= address_subform.label :zipcode %>
-      <%= address_subform.text_field :zipcode %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

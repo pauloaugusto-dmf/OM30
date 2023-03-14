@@ -1,5 +1,76 @@
-<%= search_form_for q do |f| %>
-  <%= f.label :first_name_cont, t('app.filds.first_name') %>
-  <%= f.search_field :first_name_cont %>
-  <%= f.submit %>
-<% end %>
+<form class="sticky-top bg-dark text-white rounded p-2 text-center">
+ <div class="">
+   <%= search_form_for q do |f| %>
+      <div class="my-3 input-group">
+        <%= f.check_box :status_true, include_hidden: false, class: "form-check-input" %>
+        <%= f.label :status, t("app.menu.active"), class: "mx-2 form-check-label" %>
+        <%= f.check_box :status_false, include_hidden: false, class: "form-check-input" %>
+        <%= f.label :status, t("app.menu.inactive"), class: "mx-2 form-check-label" %>
+      </div>
+
+      <div class="input-group">
+        <%= f.search_field :first_name_cont, class: "form-control", placeholder: t('app.fields.first_name')%>
+        <%= f.search_field :last_name_cont, class: "form-control", placeholder: t('app.fields.last_name') %>
+      </div>
+
+     <div class="input-group my-3">
+       <%= f.search_field :cpf_cont, class: "form-control", placeholder: t('app.fields.cpf') %>
+       <%= f.search_field :cns_cont, class: "form-control", placeholder: t('app.fields.cns') %>
+     </div>
+
+     <div class="input-group">
+       <%= f.date_field :date_of_birth_gteq, class: "form-control" %>
+       <%= f.date_field :date_of_birth_lteq, class: "form-control" %>
+    </div>
+
+     <div class="my-3">
+       <%= f.email_field :email_cont, class: "form-control", placeholder: t('app.fields.email') %>
+     </div>
+
+     <div class="my-3">
+       <%= f.telephone_field :telephone_cont, class: "form-control", placeholder: t('app.fields.telephone') %>
+     </div>
+
+     <div class="my-3">
+       <%= f.search_field :address_city_cont, class: "form-control", placeholder: t('app.fields.city')  %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.search_field :address_complement_cont, class: "form-control", placeholder: t('app.fields.complement')  %>
+     </div>
+
+
+     <div class="my-3">
+     <%= f.select(:address_fu_eq, options_for_select(['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
+                 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN',
+                 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']), { include_blank: true }, {class: "form-control" }) %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.search_field :address_ibge_code_cont, class: "form-control", placeholder: t('app.fields.ibge_code')  %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.search_field :address_neighborhood_eq, class: "form-control", placeholder: t('app.fields.neighborhood')  %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.search_field :address_public_place_cont, class: "form-control", placeholder: t('app.fields.public_place')  %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.search_field :address_zipcode_cont, class: "form-control", placeholder: t('app.fields.zipcode')  %>
+     </div>
+
+
+     <div class="my-3">
+       <%= f.submit t('app.fields.filter'), class: "btn btn-light" %>
+     </div>
+   <% end %>
+ </div>
+</form>

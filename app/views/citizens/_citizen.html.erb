@@ -1,0 +1,38 @@
+<div class="card mb-3">
+	<% if citizen.status %>
+		<span class="position-absolute top-0 start-0 translate-middle-y badge text-bg-success"> Ativo </span>
+	<% else %>
+		<span class="position-absolute top-0 start-0 translate-middle-y badge text-bg-danger"> Inativo </span>
+	<% end %>
+ <div class="row g-0">
+   <div class="col-md-2">
+     <%= image_tag citizen.photo, size: '200', class: "img-fluid rounded-start" %>
+   </div>
+   <div class="col-md-8">
+     <div class="card-body">
+       <h5 class="card-title"><%= citizen.full_name %></h5>
+			 <div class="row align-items-start">
+       	<div class="col-sm-5">
+       		<strong><%= t 'app.fields.email' %>: </strong><%= citizen.email %><br>
+       		<strong><%= t 'app.fieds.cpf' %>: </strong><%= citizen.cpf %><br>
+       		<strong><%= t 'app.fields.cns' %>: </strong><%= citizen.cns %><br>
+       		<strong><%= t 'app.fields.date_of_birth' %>: </strong><%= citizen.date_of_birth%><br>
+       		<strong><%= t 'app.fields.telephone' %>: </strong><%= citizen.telephone%>
+       	</div>
+       	<div class="col-sm-7">
+					<strong><%= t 'app.fields.ibge_code' %>: </strong><%= citizen.address_ibge_code %><br>
+					<strong><%= t 'app.fields.city' %>: </strong><%= citizen.address_city %>
+					<strong><%= t 'app.fields.fu' %>: </strong><%= citizen.address_fu %>
+					<strong><%= t 'app.fields.zipcode' %>: </strong><%= citizen.address_zipcode %><br>
+					<strong><%= t 'app.fields.neighborhood' %>: </strong><%= citizen.address_neighborhood %><br>
+					<strong><%= t 'app.fields.public_place' %>: </strong><%= citizen.address_public_place %><br>
+					<strong><%= t 'app.fields.complement' %>: </strong><%= citizen.address_complement %>
+					<span class="position-absolute top-0 end-0 m-2">
+						<%= link_to t('app.menu.edit'), edit_citizen_path(citizen), class: "btn btn-outline-secondary btn-sm" %>
+					</span>
+       	</div>
+			 </div>
+     </div>
+   </div>
+ </div>
+</div>

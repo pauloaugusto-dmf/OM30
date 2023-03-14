@@ -11,7 +11,9 @@ en:
       back: Back
       show: Show
       edit: Edit
-    filds:
+      active: Active
+      inactive: Inactive
+    fields:
       status: Status
       first_name: First Name
       last_name: Last Name
@@ -28,6 +30,7 @@ en:
       neighborhood: Neighborhood
       public_place: Public Place
       zipcode: Zipcode
+      filter: Filter
     pagination:
       older: Older
       newer: Newer

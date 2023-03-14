@@ -1,6 +1,8 @@
-<h1><%= t 'app.menu.edit_citizen' %></h1>
+<%= render 'nav_bar', text: t('app.menu.edit_citizen') %>
 
-<%= render 'form', citizen: @citizen %>
+<div class="container mt-5">
+    <%= render 'form', citizen: @citizen %>
+    <%= link_to t('app.menu.back'), citizens_path, class: "btn btn-danger text-white m-2" %>
+</div>
 
-<%= link_to t('app.menu.show'), @citizen %> |
-<%= link_to t('app.menu.back'), citizens_path %>
+

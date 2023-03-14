@@ -36,6 +36,10 @@ class Citizen < ApplicationRecord
 
   self.per_page = 10
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[cns cpf date_of_birth email first_name id last_name status telephone address_city address_complement address_fu
        address_ibge_code address_neighborhood address_public_place address_zipcode]
