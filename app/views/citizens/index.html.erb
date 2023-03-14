@@ -42,3 +42,5 @@
 <br>
 
 <%= link_to t('app.menu.new_citizen'), new_citizen_path %>
+
+<%= will_paginate @books, list_classes: %w(pagination justify-content-end) %>

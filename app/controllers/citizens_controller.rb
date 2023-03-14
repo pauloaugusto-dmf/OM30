@@ -4,7 +4,7 @@ class CitizensController < ApplicationController
   # GET /citizens or /citizens.json
   def index
     @q = Citizen.ransack(params[:q])
-    @citizens = @q.result.includes(:address)
+    @citizens = @q.result.page(params[:page])
   end
 
   # GET /citizens/1 or /citizens/1.json

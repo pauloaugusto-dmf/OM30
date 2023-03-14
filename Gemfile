@@ -31,6 +31,9 @@ gem 'image_processing', '~> 1.2'
 gem "cpf_cnpj", "~> 0.5.0"
 gem "validators", "~> 3.4"
 
+gem "ransack", "~> 4.0"
+gem "will_paginate", "~> 3.3"
+
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -57,4 +60,3 @@ group :test do
   gem 'simplecov', '~> 0.22.0', require: false
 end
 
-gem "ransack", "~> 4.0"

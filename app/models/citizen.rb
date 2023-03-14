@@ -34,6 +34,8 @@ class Citizen < ApplicationRecord
 
   validates_with CitizenDateValidator
 
+  self.per_page = 10
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[cns cpf date_of_birth email first_name id last_name status telephone address_city address_complement address_fu
        address_ibge_code address_neighborhood address_public_place address_zipcode]
