@@ -39,7 +39,7 @@ rails s
 
 
 ```bash
-cp .env.example .env
+cp .env.template .env
 
 docker-compose build
 
