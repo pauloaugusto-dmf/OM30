@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe 'Citizens', type: :request do
   subject(:citizen) { create :citizen }
   subject(:address) { create :address, citizen: citizen }

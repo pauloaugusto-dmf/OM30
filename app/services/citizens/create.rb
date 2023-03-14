@@ -19,7 +19,7 @@ module Citizens
     end
 
     def send_sms
-      Sms::CreateCitizenJob.perform_now(@citizen)
+      Sms::CreateCitizenJob.perform_now(@citizen) unless Rails.env.test?
     rescue StandardError
       Rails.logger.error 'Sms not sent'
     end
