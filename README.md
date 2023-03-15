@@ -43,9 +43,11 @@ cp .env.template .env
 
 docker-compose build
 
-docker-compose run --rm web bin/rails db:setup
+docker-compose up -d
 
-docker-compose up
+docker-compose exec web rails db:create
+
+docker-compose exec web rails db:migrate
 ```
 
 ## Tests
@@ -61,18 +63,6 @@ rspec
 ```bash
 docker-compose run --rm web rspec
 ```
-<br>
-
-## Tips:
-
-> When there are changes in the database, before uploading the server, it is necessary to run the migrations to apply these changes.
-
-```bash
-rails db:migrate
-# or via docker
-docker-compose run --rm web
-```
-<hr><br>
 
 ### Open the browser at the address `http://0.0.0.0:3000` 
 
